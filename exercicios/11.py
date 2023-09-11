@@ -14,6 +14,7 @@ Um método listar_tarefas que imprime todas as tarefas da lista.
 Crie uma instância da classe ListaDeTarefas e realize operações de adição, remoção e listagem de tarefas.'''
 from time import sleep
 
+
 class ListaDeTarefas:
     tarefas = []
 
@@ -33,11 +34,10 @@ class ListaDeTarefas:
             print(f'\033[33m{"ID": <10}\033[0m{"tarefa":<15}\n{"_"*20}')
             for pos, c in enumerate(cls.tarefas):
                 print(f'\033[33m{pos:.<10}\033[0m{c:<}')
-                sleep(0.5)      
+                sleep(0.5)
         else:
             print(f'{"-"*30}\033[31mSua lista está vazia!\033[0m{"-"*30}')
             sleep(1)
-        
 
 
 lista = ListaDeTarefas()
@@ -50,7 +50,7 @@ while True:
 [ 2 ] Remover tarefa.
 [ 3 ] Ver lista.
 [ Ctrl + c ] Parar programa\033[0m\n{"-="*20}''')
-    
+
     try:
         escolha = int(input('O que deseja fazer? '))
 
@@ -58,17 +58,18 @@ while True:
             try:
                 lista.adicionar_tarefas(input('Tarefa: '))
                 sleep(1.5)
-                
+
             except:
                 print('\033[31mVocê não pode adicionar isso a lista!\033[0m')
                 sleep(1.5)
-        
+
         elif escolha == 2:
             try:
                 lista.remover_tarefa(int(input('Posição da tarefa: ')))
                 sleep(1.5)
             except:
-                print(f'{"-"*20}\033[31mAlgo deu errado. Digite uma posição válida.\033[0m{"-"*20}')
+                print(
+                    f'{"-"*20}\033[31mAlgo deu errado. Digite uma posição válida.\033[0m{"-"*20}')
                 sleep(1.5)
 
         elif escolha == 3:
@@ -78,11 +79,9 @@ while True:
         else:
             print('\033[31mEssa opção é inválida\033[0m')
             sleep(2)
-                        
 
     except KeyboardInterrupt:
         break
     except:
         print('\033[31mOpção inválida. tente novamente.\033[0m')
         sleep(2)
-
